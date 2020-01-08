@@ -23,10 +23,10 @@ Traveller.prototype.getJourneysByTransport = function (transport) {
 };
 
 Traveller.prototype.getJourneysByMinDistance = function (minDistance) {
-    const journeyByDistance = this.journeys.filter((journey) => {
-      return minDistance <= journey.distance;
-    })
-    return journeyByDistance;
+  const journeyByDistance = this.journeys.filter((journey) => {
+    return minDistance <= journey.distance;
+  })
+  return journeyByDistance;
 };
 
 Traveller.prototype.calculateTotalDistanceTravelled = function () {
@@ -41,41 +41,17 @@ Traveller.prototype.getUniqueModesOfTransport = function () {
   const transports = this.journeys.map((journey) => {
     return journey.transport;
   })
-    transports.filter((el, i, a) => i === a.indexOf(el));
-      return transports;
+  // const modeTransport =
+    const uniqueTransportModes = transports.filter((element, index, a) => {
+      return index === a.indexOf(element)
 
-      
-    //make new array of just journeys.transport
-    //element, index, array
+  });
+  return uniqueTransportModes;
+  //returning the mapped array
+
+
+  //make new array of just journeys.transport
+  //element, index, array
 };
-  // const mapTransport = this.journeys.map((journey) => {
-  //   return journey.transport;
-  // })
-  //   const modesOfTransport = this.journeys.sort(function(journey) {
-  //     return journey.transport
-  //   });
-  //   return modesOfTransport
-  // };
-  // const modesOfTransport = this.journeys.filter((journey, i, a) => a.indexOf(journey) == i)
-  // return modesOfTransport
-
-
-
-  // const modesOfTransport = function unique(journey) {
-  //   return journey.sort().filter(function(item, pos, arr) {
-  //     return !pos || item !== arr[pos - 1];
-  //   })
-  //   return modesOfTransport
-  // }
-  // const modesOfTransport = this.journeys.map((journey) => {
-  //   return journey.transport;
-  //
-  // })
-  // return modesOfTransport;
-  //
-
-
-//find the first letter of the value of each string,
-//
 
 module.exports = Traveller;
